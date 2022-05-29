@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# config_template.txt creates is used to copy contents to a config file if it does not exist.
+# The purpose of the config file is to set variables that will be imported by cli-wrapper.sh.
+# config_template.txt is meant to be checked into git, where as the destination file is not.
+
+# config_envs is the name of the destination file that is created and is explicitly named in the .gitignore.
+# Variable names listed below these lines that are uncommented require values to be filled in.
+# NOTE: None of the clis will actually interface with them. This is test data for validation.
+# All key names listed are required to function as well.
+
+# Name of the CLI for the wrapper. (i.e. hashi, kubectl, helm, venafi)
+CLI=""
+
+# Instruction that the wrapper is executing (i.e. get, create, modify, delete)
+INSTRUCTION=""
+
+# Testing double for loops and 
+CONFIG_ARRAY=()
+
+# Testing binary Choices
+BINARY_CHOICE=''
+
+#EOF
