@@ -6,19 +6,26 @@
 
 # config_envs is the name of the destination file that is created and is explicitly named in the .gitignore.
 # Variable names listed below these lines that are uncommented require values to be filled in.
-# NOTE: None of the clis will actually interface with them. This is test data for validation.
 # All key names listed are required to function as well.
 
-# Name of the CLI for the wrapper. (i.e. hashi, kubectl, helm, venafi)
-CLI=""
+# ALL_ENVS_DECLARED: Associative array containing variables to check in cli-wrapper.
+#    Has keys both in and not in the authoritative list.
+declare -A ENVS_DECLARED=(
+    # CLI: Name of the CLI for the wrapper. (i.e. hashi, kubectl, helm, venafi)
+    [CLI]=""
+    # INSTRUCTION: Instruction that the wrapper is executing (i.e. get, create, modify, delete)
+    [INSTRUCTION]=""
+    # BINARY_CHOICE: Testing boolean values read as strings
+    [BINARY_CHOICE]=0
+    # BAD_NAME: Not in the authoritative list. Empty string
+    [BAD_NAME]=""
+    # BAD_NAME2: Not in the authoritative list. Has arbitrary string value.
+    [BAD_NAME2]=""
+)
 
-# Instruction that the wrapper is executing (i.e. get, create, modify, delete)
-INSTRUCTION=""
-
-# Testing double for loops and 
-CONFIG_ARRAY=()
-
-# Testing binary Choices
-BINARY_CHOICE=''
+# CONFIG_ARRAY[n]: Seperate key to check by individual function in cli-wrapper.sh.
+#    Bash is unable to process nested arrays so any other arrays have to be seperate.
+CONFIG_ARRAY1=("one" "three" "five")
+CONFIG_ARRAY2=("two" "four" "six")
 
 #EOF
